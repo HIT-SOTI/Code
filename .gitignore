@@ -18,3 +18,5 @@ bin-release/
 # information for Eclipse / Flash Builder.
 .github/
 
+# all `.idea` directory
+**/.idea/
