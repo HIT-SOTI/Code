@@ -1,0 +1,11 @@
+@startuml
+
+class GenerateExpression {
+    -Symbol left;//产生式左部，默认
+    +std::vector<std::vector<Symbol>> rights;    //产生式右部
+    +const Symbol &getLeft() const;
+    +void setLeft(const Symbol &leftTemp);
+    +explicit GenerateExpression(Symbol &l);
+}
+
+@enduml

@@ -1,0 +1,9 @@
+@startuml
+
+class Direction {
+    -int state;  //转移到的状态
+    -Symbol name;//接受的符号
+    +Direction(int s, Symbol& name);
+}
+
+@enduml
