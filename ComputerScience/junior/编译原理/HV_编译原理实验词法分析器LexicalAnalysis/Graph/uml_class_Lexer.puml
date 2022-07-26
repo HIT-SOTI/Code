@@ -1,0 +1,47 @@
+@startuml
+
+class Lexer {
+    /*符号表*/
+    -SymbolTableItem *symbolTableHead = nullptr;//头节点
+    -SymbolTableItem *symbolTableTemp = nullptr;//当前节点
+    -SymbolTableItem *symbolTableTail = nullptr;//尾节点
+    -int SymbolTableLength = 0;
+    /*文件*/
+    -std::ifstream inputCode;//读入源文件
+    -std::ofstream outputSymbolTable;//输出符号表
+    -std::ofstream outputToken;//输出Token
+    -std::ofstream outputLexemes;//输出字符串表
+    /*语法分析器*/
+    -std::string lineString; //读出的一行代码
+    -int lineCurrent = 0;           //行号，用于提供出错信息
+    -int lexemeBegin = 0;    //当前词素开始处
+    -int lexemeForward = 0;        //一直向前扫描，直到发现某个模式被匹配为止
+    -char forward_c = 0;         //下一个字符
+    -char lineCharStr[256] = "";  //一行的c字符串
+    -int stateFA = 0;          //FA状态
+    -bool isKeyword = false; //是关键字标志位
+    /*字符串表（词素表）*/
+    +Lexemes lexemesTable;
+    /*TOKEN*/
+    +TokenTable tokenTable;
+    +Lexer();//Constructor
+    +~Lexer();//Destructor
+    +bool openInputCode(const std::string &fileName);
+    +bool openOutputSymbolTable(const std::string &fileName);
+    +bool openOutputToken(const std::string &fileName);
+    +bool openOutputLexemes(const std::string &fileName);
+    +void closeInputCode();
+    +void closeOutputSymbolTable();
+    +void closeOutputToken();
+    +void closeOutputLexemes();
+    +void outputSymbolTableToFile();
+    +void outputTokenToFile();
+    +void outputLexemesToFile();
+    +void createSymbolTable();//创建符号表
+    +int addSymbolTableItem(SymbolTableItem *newItem);//新增符号表项（返回下标）
+    +int findSymbolTableItem(const std::string &symbol);
+    +int FA();//自动机
+    +void printSymbolTable();//打印符号表
+}
+
+@enduml

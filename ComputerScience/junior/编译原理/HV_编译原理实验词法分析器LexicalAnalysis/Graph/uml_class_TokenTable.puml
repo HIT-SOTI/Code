@@ -1,0 +1,12 @@
+@startuml
+
+class TokenTable {
+    -std::vector<Token> tokens;
+    +TokenTable() = default;//Constructor
+    +~TokenTable() = default;//Destructor
+    +std::vector<Token>::size_type saveToken(TokenType typeTemp, TokenValue valueTemp);//存储token
+    +void printToken();//打印Token表
+    +void outputToken(std::ofstream &file) const;//输出Token表
+}
+
+@enduml
