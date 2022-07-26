@@ -1,0 +1,11 @@
+@startuml
+
+class Union_tokenValue {
+    #unsigned int indexIdentifier;   //标识符在符号表中的下标
+    #unsigned int indexKeyword;      //keyword在集合中的下标
+    #int valInteger;                 //整型值
+    #char valOperator[4];            //操作符值
+    #char valSeparator[4];           //界限符值
+}
+
+@enduml

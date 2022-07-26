@@ -1,0 +1,9 @@
+@startuml
+
+class Token {
+    +TokenType type;//token类型
+    +TokenValue value;//token值
+    +Token(TokenType type, const TokenValue &value) : type(type), value(value) {}
+}
+
+@enduml

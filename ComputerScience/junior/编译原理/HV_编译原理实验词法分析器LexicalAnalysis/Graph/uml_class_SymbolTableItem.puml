@@ -1,0 +1,20 @@
+@startuml
+
+class SymbolTableItem {
+    -unsigned int name;  // lexemes下标
+    -int type;           // 0:int 1:float 2:bool 3:char
+    -int kind;           // 0:simple var 1:const 2:array 3:function
+    -int val;            // 数值，由于不含小数点，故是整型
+    -int address;        // 地址
+    +SymbolTableItem *next;//下一节点
+    +explicit SymbolTableItem(unsigned int nameTemp);//Constructor
+    +unsigned int getName() const;
+    +int getType() const;
+    +int getKind() const;
+    +int getVal() const;
+    +int getAddress() const;
+    +void printSymbolTableItem() const;//打印一行
+    +void outputSymbolTableItem(std::ofstream& file) const;//输出一行至文件
+}
+
+@enduml

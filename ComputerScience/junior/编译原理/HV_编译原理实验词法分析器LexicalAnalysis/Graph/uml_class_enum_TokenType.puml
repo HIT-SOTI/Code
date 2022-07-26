@@ -1,0 +1,11 @@
+@startuml
+
+enum TokenType {
+    TOKEN_IDENTIFIER,   //标识符
+    TOKEN_KEYWORD,      //关键字
+    TOKEN_INT,          //整型
+    TOKEN_OPERATOR,     //操作符
+    TOKEN_SEPARATOR,    //界限符
+}
+
+@enduml
