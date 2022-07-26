@@ -1,0 +1,12 @@
+@startuml
+
+class Items {
+    -int id;                             //项集编号
+    -std::vector<Item> kernelItems;      //内核项
+    -std::vector<Item> nonKernelItems;   //非内核项
+    -std::vector<Direction> directions;  //项集出方向项集下标
+    +friend bool operator==(Items &A, Items &B);
+    +void setId(int idTemp);
+}
+
+@enduml

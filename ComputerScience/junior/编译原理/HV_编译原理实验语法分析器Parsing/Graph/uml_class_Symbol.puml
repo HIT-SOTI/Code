@@ -1,0 +1,15 @@
+@startuml
+
+class Symbol {
+    -std::string name;   //符号名
+    -int type;           //0 终结符 1 非终结符
+    +Symbol(const std::string &n, int t);
+    +friend bool operator==(Symbol &A, Symbol &B);
+    +friend bool operator!=(Symbol &A, Symbol &B);
+    +void setName(const std::string &nameTemp);
+    +void setType(int typeTemp);
+    +const std::string &getName() const;
+    +int getType() const;
+}
+
+@enduml
